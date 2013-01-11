@@ -1,18 +1,20 @@
 require "sinatra"
 require "sinatra/reloader"
 require_relative "helpers"
+require "haml"
 require "yaml"
-require "mysql"
+# require "mysql"
 
 get "/" do
-  con = Mysql.new('localhost', 'root', 'kelton', 'triva')
-  con.prepare("SELECT * FROM ")
+  # con = Mysql.new('localhost', 'root', 'kelton', 'triva')
+  # con.prepare("SELECT * FROM ")
 
   #a = session
-  serialized_object = YAML::dump(a)
+  # serialized_object = YAML::dump(a)
   #puts YAML::load(serialized_object)
   #=end
-  erb :index
+  @fonts = ["arial","helvetica","tahoma","GOthAm",'jim'];
+  haml :test
 end
 
 before do
