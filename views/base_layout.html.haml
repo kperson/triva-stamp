@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+
+    %title
+      = block(:title) { Default Title }
+
+    = block(:extrahead) do
+      /Extra Head
+
+  %body
+    = block(:main) do
+      /Main Block
+
+    - block(:my_scripts, Array.new).each do |script|
+      %script{:src => "/scripts/#{script}"}
+

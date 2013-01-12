@@ -1,0 +1,22 @@
+- extends "base_layout.html"
+
+
+-block(:title) do
+  Kelton Template
+
+-block(:my_scripts, ["hello.txt"])
+
+-block(:main) do
+
+  %table
+    -i = 0;
+    -while i < fonts.length do
+      %tr{:class => "row"}
+        -2.times do |j|
+          -if fonts[i] != nil
+            %td{:class => "cell"}=fonts[i]
+            - i += 1
+
+
+  -fonts.each_index do |index|
+    %p{:class => index % 2 == 0 ? "even" : "odd"}="%s %s" % [index + 1, fonts[index].downcase]
