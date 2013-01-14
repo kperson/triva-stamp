@@ -1,0 +1,4 @@
+---
+cdn: no
+cdn_dir: https://s3.amazonaws.com/trivia-cdn-123/trivia-1358095945
+base_cdn: https://s3.amazonaws.com/trivia-cdn-123/

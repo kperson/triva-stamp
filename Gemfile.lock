@@ -9,6 +9,8 @@ GEM
     backports (2.6.5)
     daemons (1.1.9)
     eventmachine (1.0.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
     haml (3.1.7)
     httparty (0.9.0)
       multi_json (~> 1.0)
@@ -22,6 +24,8 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack_csrf (2.4.0)
+      rack (>= 0.9)
     sinatra (1.3.3)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
@@ -43,6 +47,9 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.3.3)
+    uglifier (1.2.6)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.3)
     uuidtools (2.1.3)
 
 PLATFORMS
@@ -51,8 +58,10 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 1.8.0)
   haml
+  rack_csrf (~> 2.4.0)
   sinatra (~> 1.3.3)
   sinatra-contrib
   sinatra-reloader (~> 1.0)
   template-inheritance (~> 0.3)
   thin (~> 1.5.0)
+  uglifier

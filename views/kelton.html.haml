@@ -4,10 +4,14 @@
 -block(:title) do
   Kelton Template
 
--block(:my_scripts, ["hello.txt"])
+-block(:my_scripts, ["hello.js"])
+
+-block(:my_styles, ["hello.css"])
 
 -block(:main) do
+  %img{:src => Trivia::Resolve.path("/images/2f9cnjf89gfbkungno2qnbdldq.jpg")}
 
+  %input{:type => "hidden", :name => Rack::Csrf.field, :value => Rack::Csrf.token(env)}
   %table
     -i = 0;
     -while i < fonts.length do

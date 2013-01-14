@@ -7,5 +7,7 @@ gem "thin", "~> 1.5.0"
 gem "haml"
 gem "sinatra-contrib"
 gem "template-inheritance", "~> 0.3"
+gem "rack_csrf", "~> 2.4.0"
+gem  "uglifier"
 
 # gem "mysql", "~> 2.9.0"

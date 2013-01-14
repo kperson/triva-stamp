@@ -7,6 +7,7 @@ set :public_folder, File.expand_path("..", __FILE__) + "/public"
 
 helpers do
   def ihaml(template)
+
     template = TemplateInheritance::Template.new(template)
     hash = { }
     self.instance_variables.each { |var|

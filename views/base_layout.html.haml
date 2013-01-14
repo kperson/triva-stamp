@@ -1,9 +1,12 @@
 !!!
 %html
   %head
-
+    %meta{:name => Rack::Csrf.field, :content => Rack::Csrf.token(env)}
     %title
       = block(:title) { Default Title }
+
+    - block(:my_styles, Array.new).each do |style|
+      %script{:src => Trivia::Resolve.path("/styles/" + style) }
 
     = block(:extrahead) do
       /Extra Head
@@ -12,6 +15,8 @@
     = block(:main) do
       /Main Block
 
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"}
+    %script{:src => Trivia::Resolve.path("/scripts/setup.js" ) }
     - block(:my_scripts, Array.new).each do |script|
-      %script{:src => "/scripts/#{script}"}
+      %script{:src => Trivia::Resolve.path("/scripts/" + script) }
 
