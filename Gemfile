@@ -9,5 +9,6 @@ gem "sinatra-contrib"
 gem "template-inheritance", "~> 0.3"
 gem "rack_csrf", "~> 2.4.0"
 gem  "uglifier"
-
-# gem "mysql", "~> 2.9.0"
+gem "sinatra-activerecord"
+gem "dbi", "~> 0.4.5"
+gem "mysql", "~> 2.9.0"

@@ -1,13 +1,29 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    activemodel (3.2.11)
+      activesupport (= 3.2.11)
+      builder (~> 3.0.0)
+    activerecord (3.2.11)
+      activemodel (= 3.2.11)
+      activesupport (= 3.2.11)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activesupport (3.2.11)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    arel (3.0.2)
     aws-sdk (1.8.0)
       httparty (~> 0.7)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     backports (2.6.5)
+    builder (3.0.4)
     daemons (1.1.9)
+    dbi (0.4.5)
+      deprecated (= 2.0.1)
+    deprecated (2.0.1)
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -15,9 +31,11 @@ GEM
     httparty (0.9.0)
       multi_json (~> 1.0)
       multi_xml
+    i18n (0.6.1)
     json (1.7.6)
     multi_json (1.5.0)
     multi_xml (0.5.1)
+    mysql (2.9.0)
     nokogiri (1.5.6)
     rack (1.4.1)
     rack-protection (1.3.2)
@@ -30,6 +48,9 @@ GEM
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
+    sinatra-activerecord (1.2.1)
+      activerecord (~> 3.0)
+      sinatra (~> 1.0)
     sinatra-contrib (1.3.2)
       backports (>= 2.0)
       eventmachine
@@ -47,6 +68,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     tilt (1.3.3)
+    tzinfo (0.3.35)
     uglifier (1.2.6)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
@@ -57,9 +79,12 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk (~> 1.8.0)
+  dbi (~> 0.4.5)
   haml
+  mysql (~> 2.9.0)
   rack_csrf (~> 2.4.0)
   sinatra (~> 1.3.3)
+  sinatra-activerecord
   sinatra-contrib
   sinatra-reloader (~> 1.0)
   template-inheritance (~> 0.3)

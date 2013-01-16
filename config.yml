@@ -1,4 +1,7 @@
 ---
-cdn: no
-cdn_dir: https://s3.amazonaws.com/trivia-cdn-123/trivia-1358095945
+cdn: yes
+cdn_dir: https://s3.amazonaws.com/trivia-cdn-123/trivia-1358131847
 base_cdn: https://s3.amazonaws.com/trivia-cdn-123/
+aws_key:
+aws_secret:
+aws_cdn_bucket: trivia-cdn-123

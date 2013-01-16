@@ -10,6 +10,7 @@ require_relative "lib/cdn_upload"
 require "sinatra/config_file"
 require_relative "lib/resolve"
 require "rack/csrf"
+require_relative "forms/login_form"
 
 
 config_file "config.yml"
@@ -29,8 +30,18 @@ get "/" do
   ihaml "kelton.html"
 end
 
+get "/login/" do
+  @form = LoginForm.new
+  ihaml "login.html"
+end
+
+post "/login/" do
+  @form = LoginForm.new(params)
+  ihaml "login.html"
+end
+
 get "/test" do
-  cdn = CDNUpload.new()
+  cdn = CDNUpload.new
   cdn.post_to_cdn
   cdn.delete_old_from_cdn
   cdn.write_config

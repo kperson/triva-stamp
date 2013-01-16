@@ -1,0 +1,24 @@
+- extends "base_layout.html"
+
+-block(:page_title, "Login")
+
+-block(:main) do
+  - if form.invalid? && request.request_method == "POST"
+    %div{:class => "row"}
+      %div{:class => "six columns offset-by-three"}
+        %ul
+          -form.errors.each do |attribute, message|
+            %li=message
+
+
+
+
+  %div{:class => "row"}
+    %div{:class => "six columns offset-by-three"}
+      %form{:action => "/login/", :method => "POST"}
+        %div{:class => "row"}
+          %input{:type => "text", :name => "username", :placeholder => "Username", :value => form.username}
+        %div{:class => "row"}
+          %input{:type => "password", :name => "password", :placeholder => "Password"}
+        %input{:type => "hidden", :name => Rack::Csrf.field, :value => Rack::Csrf.token(env)}
+        %button{}Login

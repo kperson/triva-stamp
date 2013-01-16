@@ -1,12 +1,17 @@
 !!!
 %html
   %head
+    %meta{:charset => "utf-8"}
+    %meta{:name => "viewport", :content => "width=device-width"}
     %meta{:name => Rack::Csrf.field, :content => Rack::Csrf.token(env)}
-    %title
-      = block(:title) { Default Title }
+    %title=block(:page_title, String.new).to_s == "" ? "Trivia" : block(:page_title, String.new)
+
+
+    %link{:href => Trivia::Resolve.path("/stylesheets/foundation.min.css"), :rel => "stylesheet" }
+    %link{:href => Trivia::Resolve.path("/stylesheets/app.css"), :rel => "stylesheet" }
 
     - block(:my_styles, Array.new).each do |style|
-      %script{:src => Trivia::Resolve.path("/styles/" + style) }
+      %link{:href => Trivia::Resolve.path(style), :rel => "stylesheet"}
 
     = block(:extrahead) do
       /Extra Head
@@ -15,8 +20,12 @@
     = block(:main) do
       /Main Block
 
+
     %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"}
+    %script{:src => Trivia::Resolve.path("/javascripts/modernizr.foundation.js")}
+    %script{:src => Trivia::Resolve.path("/javascripts/app.js")}
     %script{:src => Trivia::Resolve.path("/scripts/setup.js" ) }
     - block(:my_scripts, Array.new).each do |script|
-      %script{:src => Trivia::Resolve.path("/scripts/" + script) }
+      %script{:src => Trivia::Resolve.path(script) }
+
 
