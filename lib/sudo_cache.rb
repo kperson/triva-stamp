@@ -3,7 +3,7 @@ require "dbi"
 class RelCache
     
   @@file_cache = {}
-  @@clean_rate = 10
+  @@clean_rate = 100
   @@prng = Random.new(1234)
   @@db_settings
   

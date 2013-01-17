@@ -49,7 +49,7 @@ class CDNUpload
   def delete_old_from_cdn
     path = (File.expand_path("..", __FILE__)).gsub("/lib", "") + "/config.yml"
     config_file = YAML::load(File.open(path))
-    s3 = AWS::S3.new(:access_key_id => "AKIAIHT4SOZ6Y3X2524Q", :secret_access_key => "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")
+    s3 = AWS::S3.new(:access_key_id => config_file["aws_key"], :secret_access_key => config_file["aws_secret"])
     bucket = s3.buckets[@bucket_name]
     bucket.objects.each do |obj|
       if !obj.key.start_with?(@key_append)

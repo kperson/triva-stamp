@@ -12,7 +12,6 @@ require_relative "lib/resolve"
 require "rack/csrf"
 require_relative "forms/login_form"
 
-
 config_file "config.yml"
 
 use Rack::Csrf, :raise => true
@@ -25,9 +24,9 @@ get "/" do
   #puts YAML::load(serialized_object)
   #=end
 
-
-  @fonts = ["arial","helvetica","tahoma","GOthAm"];
-  ihaml "kelton.html"
+   redirect "/login/"
+  #@fonts = ["arial","helvetica","tahoma","GOthAm"];
+  #ihaml "kelton.html"
 end
 
 get "/login/?" do
@@ -38,10 +37,7 @@ end
 
 post "/login/" do
   @form = LoginForm.new(params)
-	if @form.invalid?
-		session[:login_form] = @form
-		redirect '/login'
-	end	
+  @form.errors
   ihaml "login.html"
 end
 
