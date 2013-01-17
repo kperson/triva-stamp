@@ -6,6 +6,7 @@ class LoginForm
 
   attr_accessor :username, :password
 
+  validates :username, :length => { :maximum => 2, :message => "coo"}
   validates_presence_of :username, :message => "Please enter an username"
   validates_presence_of :password, :message => "Please enter a password"
 

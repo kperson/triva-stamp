@@ -30,13 +30,18 @@ get "/" do
   ihaml "kelton.html"
 end
 
-get "/login/" do
-  @form = LoginForm.new
+get "/login/?" do
+	@form = session[:login_form].nil? ? LoginForm.new : session[:login_form]  
+	session.delete(:login_form)
   ihaml "login.html"
 end
 
 post "/login/" do
   @form = LoginForm.new(params)
+	if @form.invalid?
+		session[:login_form] = @form
+		redirect '/login'
+	end	
   ihaml "login.html"
 end
 
