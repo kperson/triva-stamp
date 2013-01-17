@@ -2,6 +2,6 @@
 cdn: yes
 cdn_dir: https://s3.amazonaws.com/trivia-cdn-123/trivia-1358131847
 base_cdn: https://s3.amazonaws.com/trivia-cdn-123/
-aws_key:
-aws_secret:
+aws_key: AKIAIHT4SOZ6Y3X2524Q
+aws_secret: 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
 aws_cdn_bucket: trivia-cdn-123
