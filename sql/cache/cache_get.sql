@@ -1,0 +1,1 @@
+SELECT yaml_value FROM sudo_cache WHERE key_name = ? AND (expiry > UNIX_TIMESTAMP(NOW()) OR expiry = -1)

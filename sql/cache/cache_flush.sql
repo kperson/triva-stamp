@@ -1,0 +1,1 @@
+DELETE FROM sudo_cache

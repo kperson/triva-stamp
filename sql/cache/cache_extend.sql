@@ -1,0 +1,1 @@
+UPDATE sudo_cache SET expiry = UNIX_TIMESTAMP(NOW() + ?) WHERE key_name = ? AND (expiry > UNIX_TIMESTAMP(NOW()) OR expiry = -1)

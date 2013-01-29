@@ -1,0 +1,1 @@
+INSERT INTO email_password (member_id, password, email) VALUES (?, ?, ?)
