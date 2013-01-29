@@ -11,6 +11,7 @@ require "sinatra/config_file"
 require_relative "lib/resolve"
 require "rack/csrf"
 require_relative "forms/login_form"
+require_relative "lib/user"
 
 config_file "config.yml"
 
@@ -28,6 +29,20 @@ get "/" do
   #@fonts = ["arial","helvetica","tahoma","GOthAm"];
   #ihaml "kelton.html"
 end
+
+
+get "/hello" do
+  puts @user_session
+  @user_session.add_role(:contributor)
+  @user_session.save
+end
+
+
+get "/testme" do
+  puts @user_session.roles
+
+end
+
 
 get "/login/?" do
 	@form = session[:login_form].nil? ? LoginForm.new : session[:login_form]  
@@ -53,4 +68,7 @@ end
 before do
   @config = settings
   session[:id] ||= SecureRandom.uuid
+  @user_session = User.get_user_by_session_id(session[:id])
+
 end
+

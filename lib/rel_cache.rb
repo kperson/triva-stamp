@@ -15,14 +15,20 @@ class RelCache
 
 	def set(key, object, expiry = -1)
     expire_time = expiry >= 0 ? expiry : -1
+    puts expire_time
+    puts object
+    puts key
     if expire_time == -1
-      db_connection.do(DBFactory.instance.sql_at("cache_set_forever.sql"), key, YAML::dump(object).to_s)
+
+
+
+      db_connection.do(DBFactory.instance.sql_at("cache/cache_set_forever.sql"), key, YAML::dump(object).to_s)
     else
       db_connection.do(DBFactory.instance.sql_at("cache/cache_set.sql"), key, YAML::dump(object).to_s, expire_time)
     end
-	end
-	
-	def get(key) 
+  end
+
+	def get(key)
     data = db_connection.select_one(DBFactory.instance.sql_at("cache/cache_get.sql"), key)
     data != nil ? YAML::load(data["yaml_value"]) : nil
 	end

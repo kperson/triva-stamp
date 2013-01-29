@@ -75,6 +75,18 @@ namespace :sample do
 
   end
 
+   desc "Cache sample"
+  task :cache_sample do
+    cache = CacheFactory.instance.cache
+    #trivia = Trivia.new(SecureRandom.hex(30))
+    #trivia.name = "My First Trivia"
+    #cache.set("trivia_" + trivia.trivia_id, trivia)
+    new_trivia = cache.get("trivia_9d52f81b2e93dfc4065d9b2cd7e43f7549e66b44a5b76237f5e662bf137f")
+    puts new_trivia.name
+
+  end
+
+
 
   desc "Get Trivia"
   task :get_trivia do
